@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import { loginUser } from "../../api/user.js";
+import { useState } from "react";
 
 const usernameConfig = {
   required: true,
@@ -12,25 +14,33 @@ function LoginForm() {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-    console.log(errors);
+  const [loading, setLoading] = useState(false);
+  const [apiError, setApiError] = useState(null)
+
+  const onSubmit = async ({ username }) => {
+    setLoading(true)
+    const [error, user] = await loginUser(username);
+    if(error !== null) {
+      setApiError(error)
+    }
+
+    setLoading(false)
+
   };
   console.log(errors);
 
   const errorMessage = (() => {
-    if(!errors.username){
-        return null
+    if (!errors.username) {
+      return null;
     }
-    if(errors.username.type === 'required'){
-        return <span>Username is empty</span>
-    } 
+    if (errors.username.type === "required") {
+      return <span>Username is empty</span>;
+    }
 
-    if(errors.username.type === 'minLength'){
-        return  <span>Username has to be atleast 3 characters</span>
+    if (errors.username.type === "minLength") {
+      return <span>Username has to be atleast 3 characters</span>;
     }
-    })()
-  
+  })();
 
   return (
     <>
@@ -43,14 +53,14 @@ function LoginForm() {
             placeholder="johndoe"
             {...register("username", usernameConfig)}
           />
-        {errorMessage}
+          {errorMessage}
         </fieldset>
 
-        <button type="submit">Continue</button>
+        <button type="submit" disabled={loading}>Continue</button>
+        {loading && <p>Logging in...</p>}
+        {apiError && <p>{ apiError } </p>}
       </form>
     </>
   );
-
-  }
-export default LoginForm
-  
+}
+export default LoginForm;
