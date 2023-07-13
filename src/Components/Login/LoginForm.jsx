@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { storageSave } from "../../utils/storage.js";
 import {useNavigate} from 'react-router-dom'
 import {useUser} from "../../Context/UserContext.jsx";
+import { STORAGE_KEY_USER } from "../../const/storageKeys.js";
 
 
 const usernameConfig = {
@@ -41,7 +42,7 @@ function LoginForm() {
         setApiError(error);
       }
       if (userResponse !== null) {
-        storageSave("translation-user", userResponse);
+        storageSave(STORAGE_KEY_USER, userResponse);
         setUser(userResponse)
       }
     } catch (error) {

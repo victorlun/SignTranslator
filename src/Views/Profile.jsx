@@ -1,3 +1,4 @@
+import {withAuth} from "../hoc/withAuth"
 function Profile () {
     return(
         <h1>Profile</h1>
@@ -8,4 +9,4 @@ function Profile () {
 
 }
 
-export default Profile
+export default withAuth(Profile)
