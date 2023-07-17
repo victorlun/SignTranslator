@@ -6,11 +6,15 @@ const ProfileActions = ({logout}) => {
            logout() 
         } 
     }
+    function handleClearHistoryClick(){
+        alert("Not implemented yet")
+
+    }
 
     return (
             <ul>
                 <li><Link to="/translate">Translate</Link></li>
-                <li><button>Clear History</button></li>
+                <li><button onClick={handleClearHistoryClick}>Clear History</button></li>
                 <li><button onClick={handleLogOutClick}>Log Out</button></li>
 
             </ul>
