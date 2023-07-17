@@ -12,7 +12,7 @@ const ProfileTranslateHistory = ({translations = []}) => {
             <ul>
                 {translationList}
             </ul>
-            <p>Funkar detta?</p>
+  
         </section>
     )
 } 

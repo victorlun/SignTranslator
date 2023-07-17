@@ -13,6 +13,7 @@ const Navbar = () => {
             {user !== null &&
                 <>
                     <NavLink to="/translate" className="nav-link">Translate</NavLink>
+                    
                     <NavLink to="/profile" className="nav-link">Profile</NavLink>
 
                 </>

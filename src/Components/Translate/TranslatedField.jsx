@@ -4,7 +4,7 @@ function TranslatedField({ translation }) {
             <textarea 
                 value={translation} 
                 readOnly
-                style={{ width: '80%', height: '150px', marginLeft: "50px"}}
+                style={{ width: '1000px', height: '150px', marginLeft: "100px"}}
             />
         </div>
     );

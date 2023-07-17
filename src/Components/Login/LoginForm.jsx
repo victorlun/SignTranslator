@@ -68,13 +68,13 @@ function LoginForm() {
 
   return (
     <>
-      <h2>What's your name?</h2>
+      <h3>What's your name?</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset>
           <label htmlFor="username">Username: </label>
           <input
             type="text"
-            placeholder="johndoe"
+            placeholder="Johndoe"
             {...register("username", usernameConfig)}
           />
           {errorMessage}

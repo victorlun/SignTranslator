@@ -1,10 +1,11 @@
 import TranslateForm from "../Components/Translate/TranslateForm";
-import TranslatedField from "../Components/Translate/TranslatedField";
+
 
 function Translate () {
     return(
         <>
-        <h1>Translate</h1>
+        <h1>TRANSLATE</h1>
+        <p style={{textAlign: "center"}}>Here you can translate from English to Sign Language!</p>
         <TranslateForm/>
 
         </>

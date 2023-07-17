@@ -1,12 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
 h1 {
     text-align: center;
+    font-family: 'JetBrains Mono', cursive;
+    font-size: 26px;
 }
+h4 {
+    text-align: center;
+    font-family: 'JetBrains Mono', cursive;
+    font-size: 18px;
+}
+h3 {
+    text-align: left;
+    font-family: 'JetBrains Mono', cursive;
+    font-size: 18px;
+}
+
 .navbar {
-    background-color: #f4a261;
+    background: linear-gradient(#f4a261, #f4a261);
     color: #000000;
     overflow: visible;
     font-family: Arial, sans-serif;
     width: 100%;
+    padding: 1px;
+    margin: 5px;
 }
 
 .nav-link {
@@ -36,19 +53,21 @@ h1 {
 
 
 .nav-link {
-    background-color: #f4a261;
+    background: #f4a261;
     float: left;
     display: block;
-    color: #5f5e5e;
+    color: #696969;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 20px;
+
 }
 
 .nav-link:hover {
     background-color: #e9c46a;
     color: black;
+ 
 }
 
 @media screen and (max-width: 600px) {
@@ -57,3 +76,49 @@ h1 {
         width: 100%;
     }
 }
+fieldset {
+    border: 2px solid #000000;
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #f4a261;
+    width: 40%;
+    font-family: 'JetBrains Mono', cursive;
+}
+
+legend {
+    padding: 0 10px;
+    color: #4c9aff;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="email"], textarea {
+    width: 50%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+button {
+    background:  #f4a261;
+    color: rgb(0, 0, 0);
+    border:#000000;
+    border-radius: 0px;
+    padding: 10px 20px;
+    font-size: 1em;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+}
+
+button:active {
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(0px);
+}
+

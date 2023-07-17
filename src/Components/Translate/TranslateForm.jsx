@@ -15,11 +15,11 @@ function TranslateForm() {
         <div>
             <textarea 
                 value={text} 
-                onChange={e => setText(e.target.value)} 
-                placeholder='Write your text here...'
-                style={{ width: '80%', height: '150px', marginBottom: '20px', marginLeft: '50px' }}
+                onChange={element => setText(element.target.value)} 
+                placeholder='Write the text you want to translate here...'
+                style={{ width: '1000px', height: '150px', marginBottom: '20px', marginLeft: '100px' }}
             />
-            <button onClick={handleTranslate} style={{ marginBottom: '20px', marginTop: "100px" }}>
+            <button onClick={handleTranslate} style={{ marginBottom: '20px', marginTop: "5px", marginLeft: "100px"}}>
                 Translate
             </button>
             <TranslatedField translation={translation} />
