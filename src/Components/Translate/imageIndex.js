@@ -24,7 +24,6 @@ import w from './Images/w.png';
 import x from './Images/x.png';
 import y from './Images/y.png';
 import z from './Images/z.png';
-
 export{
     a,
     b,

@@ -5,7 +5,7 @@ import * as Images from './imageIndex.js'
 function TranslateForm() {
     const [text, setText] = useState();
     const [translation, setTranslation] = useState();
-    //const [image, setImage] = useState()
+
 
 
 
@@ -30,9 +30,10 @@ function TranslateForm() {
                 value={text} 
                 onChange={element => setText(element.target.value)} 
                 placeholder='Write the text you want to translate here...'
-                style={{ width: '60%', height: '150px', marginBottom: '20px', marginLeft: "20%", marginRight: "20%", fontSize: "28px", fontfamily: "monospace"}}
+                style={{ width: '60%', height: '150px', marginBottom: '20px', marginLeft: "20%", marginRight: "20%", 
+                fontSize: "22px", resize: "none" }}
             />
-            <button onClick={handleTranslate} style={{ marginBottom: '20px', marginTop: "5px", marginLeft: "65%"}}>
+            <button onClick={handleTranslate} style={{ marginBottom: '20px', marginTop: "5px", marginLeft: "69%"}}>
                 Translate
             </button>
             <TranslatedField translation={translation} />
