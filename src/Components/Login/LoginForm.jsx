@@ -68,7 +68,7 @@ function LoginForm() {
 
   return (
     <>
-      <h3>What's your name?</h3>
+      <h3 style={{marginLeft: '25%'}}>What's your name?</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset>
           <label htmlFor="username">Username: </label>
@@ -80,7 +80,7 @@ function LoginForm() {
           {errorMessage}
         </fieldset>
 
-        <button type="submit" disabled={loading}>
+        <button type="submit" disabled={loading} style={{marginLeft: "25%"}}>
           Continue
         </button>
         {loading && <p>Logging in...</p>}

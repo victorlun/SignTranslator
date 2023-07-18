@@ -11,7 +11,7 @@ const Navbar = () => {
         <nav className="navbar">
             
             <h1>LOST IN TRANSLATION
-            <img src={logo} height={'100px'} alt='logo'/></h1>
+            <img src={logo} height='75px' alt='logo'/></h1>
             <NavLink to="/" className="nav-link">Login</NavLink>
             {user !== null &&
                 <>
