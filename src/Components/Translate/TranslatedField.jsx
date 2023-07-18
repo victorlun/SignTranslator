@@ -1,11 +1,11 @@
+//import * as Images from './imageIndex'
+
 function TranslatedField({ translation }) {
     return (
-        <div>
-            <textarea 
-                value={translation} 
-                readOnly
-                style={{ width: '1000px', height: '150px', marginLeft: "100px"}}
-            />
+        <div style={{backgroundColor: 'white', display: 'flex', flexWrap: 'wrap', border: '1px solid #FFF', minHeight: '100px', padding: '5px', width: '60%', marginLeft: "20%", marginRight: "20%"}}>
+            {translation && translation.map((image, index) => (
+                <img key={index} src={image} alt="translated-text" />
+            ))}
         </div>
     );
 }
