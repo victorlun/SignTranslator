@@ -30,7 +30,7 @@ function TranslateForm() {
                 value={text} 
                 onChange={element => setText(element.target.value)} 
                 placeholder='Write the text you want to translate here...'
-                style={{ width: '60%', height: '150px', marginBottom: '20px', marginLeft: "20%", marginRight: "20%", 
+                style={{ width: '60.8%', height: '150px', marginBottom: '20px', marginLeft: "20%", marginRight: "20%", 
                 fontSize: "22px", resize: "none" }}
             />
             <button onClick={handleTranslate} style={{ marginBottom: '20px', marginTop: "5px", marginLeft: "69%"}}>

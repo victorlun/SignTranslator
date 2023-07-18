@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 const ProfileActions = ({logout}) => {
 
     function handleLogOutClick(){
@@ -12,12 +11,11 @@ const ProfileActions = ({logout}) => {
     }
 
     return (
-            <ul>
-                <li><Link to="/translate">Translate</Link></li>
-                <li><button onClick={handleClearHistoryClick}>Clear History</button></li>
-                <li><button onClick={handleLogOutClick}>Log Out</button></li>
+        <>
+        <button onClick={handleClearHistoryClick}style={{marginLeft: "5%"}}>Clear History</button>
+        <button onClick={handleLogOutClick} style={{marginLeft: "65%"}}>Log Out</button>
 
-            </ul>
+        </>
     )
 } 
 

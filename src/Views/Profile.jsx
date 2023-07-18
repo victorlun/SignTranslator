@@ -18,7 +18,7 @@ function Profile () {
         <ProfileHeader username={user.username}/>
         <ProfileActions logout={logout}/>
         <ProfileTranslateHistory translations={user.translations}/>
-
+        <img src="https://i.gifer.com/q7Q.gif" alt="lost in translation gif" style={{marginLeft:"35%", marginTop: "15%", height: "250px", width: "450px", opacity: "70%", borderRadius:"150px"}}></img>
         </>
     )
 
