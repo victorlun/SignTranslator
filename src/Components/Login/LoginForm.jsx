@@ -80,7 +80,7 @@ function LoginForm() {
           {errorMessage}
         </fieldset>
 
-        <button type="submit" disabled={loading} style={{marginLeft: "25%"}}>
+        <button type="submit" disabled={loading} style={{marginLeft: "25%", marginTop: "5px"}}>
           Continue
         </button>
         {loading && <p>Logging in...</p>}
