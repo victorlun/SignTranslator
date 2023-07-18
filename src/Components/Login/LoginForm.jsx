@@ -25,7 +25,6 @@ function LoginForm() {
 
 
   useEffect(() => {
-    console.log("User has changed!", user)
     if(user !== null){
       navigate('/profile')
     }
@@ -51,7 +50,7 @@ function LoginForm() {
       setLoading(false);
     }
   };
-  console.log(errors);
+
 
   const errorMessage = (() => {
     if (!errors.username) {
