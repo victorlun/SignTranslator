@@ -1,5 +1,3 @@
-//import * as Images from './imageIndex'
-
 function TranslatedField({ translation }) {
     return (
         <div style={{backgroundColor: 'white', display: 'flex', flexWrap: 'wrap', border: '1px solid #FFF', minHeight: '150px', padding: '5px', width: '60%', marginLeft: "20%", marginRight: "20%"}}>
