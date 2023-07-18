@@ -1,5 +1,5 @@
 # Lost in Translation
-Lost in translation is an assignment from Noroff Accelerate (JavaScript/Java fullstack). It is a translator from characters (a-z) to sign language. 
+Lost in translation is an assignment from Noroff Accelerate (JavaScript/Java fullstack) during the React segment. It is a translator from characters (a-z) to sign language. 
 
 ## Login
 Login using just a username.
