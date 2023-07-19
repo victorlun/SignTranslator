@@ -1,40 +1,53 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import TranslatedField from './TranslatedField';
 import * as Images from './imageIndex.js'
 import { patchTranslation } from '../../api/translation';
 import { UserContext } from '../../Context/UserContext';
-
-
+import { storageSave } from '../../utils/storage';
+import { STORAGE_KEY_USER } from '../../const/storageKeys';
 
 
 function TranslateForm() {
     const [text, setText] = useState('');
-    const [translation, setTranslation] = useState([]);
-    const [apiText, setApiText] = useState('')
-    const { user } = useContext(UserContext);
+    const [, setTranslation] = useState([]);
+    const [imageTranslation, setImageTranslation] = useState('')
+    const [isLoading, setIsLoading] = useState(false); 
+    const { user, setUser } = useContext(UserContext);
 
-
-    const handleTranslate = () => {
+    async function handleTranslate(){
+        setIsLoading(true); // set loading to true
         const textArray = text.toLowerCase().split('');
+        const textstring = text;
         let charImages = [];
-
+    
         for(let i = 0; i < textArray.length; i++){
             if (Images[textArray[i]]) {
                 charImages.push(Images[textArray[i]]);
             }
         }
-        setTranslation(charImages);
-        setApiText(text)
-        
-    };
-
-    // Calling postTranslation when translation changes
-    useEffect(() => {
-        if (apiText.length > 0) {
-
-            patchTranslation(user, apiText);
+    
+        setImageTranslation(charImages)
+        setTranslation(textstring)
+    
+        const data = await patchTranslation(user, textstring);
+    
+        if (data) {
+            let updatedTranslations = [...user.translations, textstring];
+    
+            // limit to the last 10 translations
+            if (updatedTranslations.length > 10) {
+                updatedTranslations = updatedTranslations.slice(updatedTranslations.length - 10);
+            }
+    
+            const updatedUser = {
+                ...user,
+                translations: updatedTranslations
+            };
+            setUser(updatedUser);
+            storageSave(STORAGE_KEY_USER, updatedUser);
         }
-    }, [apiText, user]);
+        setIsLoading(false); // set loading to false
+    }
 
     return (
         <div>
@@ -45,10 +58,14 @@ function TranslateForm() {
                 style={{ width: '60.8%', height: '150px', marginBottom: '20px', marginLeft: "20%", marginRight: "20%", 
                 fontSize: "22px", resize: "none" }}
             />
-            <button onClick={handleTranslate} style={{ marginBottom: '20px', marginTop: "5px", marginLeft: "69%"}}>
-                Translate
+            <button 
+                onClick={handleTranslate} 
+                disabled={isLoading} 
+                style={{ marginBottom: '20px', marginTop: "5px", marginLeft: "69%" }}
+            >
+                {isLoading ? 'Translating...' : 'Translate'} 
             </button>
-            <TranslatedField translation={translation} />
+            <TranslatedField imageTranslation={imageTranslation} />
         </div>
     );
 }
