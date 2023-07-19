@@ -26,7 +26,7 @@ function LoginForm() {
 
   useEffect(() => {
     if(user !== null){
-      navigate('/profile')
+      navigate('/translate')
     }
   }, [user, navigate])
 
