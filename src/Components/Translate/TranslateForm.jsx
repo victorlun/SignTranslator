@@ -19,7 +19,7 @@ function TranslateForm() {
         const textArray = text.toLowerCase().split('');
         const textstring = text;
         let charImages = [];
-    
+
         for(let i = 0; i < textArray.length; i++){
             if (Images[textArray[i]]) {
                 charImages.push(Images[textArray[i]]);

@@ -12,9 +12,12 @@ const Navbar = () => {
             
             <h1>LOST IN TRANSLATION
             <img src={logo} height='75px' alt='logo'/></h1>
+            {user == null &&
             <NavLink to="/" className="nav-link">Login</NavLink>
+        }
             {user !== null &&
                 <>
+                   
                     <NavLink to="/translate" className="nav-link">Translate</NavLink>
                     <NavLink to="/profile" className="nav-link">Profile</NavLink>
                 </>
