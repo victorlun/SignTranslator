@@ -1,29 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import TranslatedField from './TranslatedField';
 import * as Images from './imageIndex.js'
+import { patchTranslation } from '../../api/translation';
+import { UserContext } from '../../Context/UserContext';
+
+
+
 
 function TranslateForm() {
-    const [text, setText] = useState();
-    const [translation, setTranslation] = useState();
-
-
+    const [text, setText] = useState('');
+    const [translation, setTranslation] = useState([]);
+    const [apiText, setApiText] = useState('')
+    const { user } = useContext(UserContext);
 
 
     const handleTranslate = () => {
         const textArray = text.toLowerCase().split('');
         let charImages = [];
-        console.log(textArray);
+
         for(let i = 0; i < textArray.length; i++){
             if (Images[textArray[i]]) {
                 charImages.push(Images[textArray[i]]);
             }
         }
-        console.log(charImages);
-    
-        const translatedText = charImages;
-        setTranslation(translatedText);
+        setTranslation(charImages);
+        setApiText(text)
+        
     };
-    
+
+    // Calling postTranslation when translation changes
+    useEffect(() => {
+        if (apiText.length > 0) {
+
+            patchTranslation(user, apiText);
+        }
+    }, [apiText, user]);
+
     return (
         <div>
             <textarea 
@@ -37,7 +49,6 @@ function TranslateForm() {
                 Translate
             </button>
             <TranslatedField translation={translation} />
-        
         </div>
     );
 }
