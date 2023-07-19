@@ -1,20 +1,30 @@
-const ProfileActions = ({logout}) => {
+import { useContext } from "react";
+import { clearTranslation } from "../../api/translation"
+import { UserContext } from '../../Context/UserContext'
 
-    function handleLogOutClick(){
-        if(window.confirm ('Are you sure?')){
+
+const ProfileActions = ({logout}) => {
+    const { user, setUser } = useContext(UserContext);
+
+    function handleLogOutClick() {
+        if(window.confirm ('Are you sure?')) {
            logout() 
         } 
     }
-    function handleClearHistoryClick(){
-        alert("Not implemented yet")
+    
+    async function handleClearHistoryClick() {
+        await clearTranslation(user);
+        setUser({
+            ...user,
+            translations: []
+        });
 
     }
 
     return (
         <>
-        <button onClick={handleClearHistoryClick}style={{marginLeft: "5%"}}>Clear History</button>
+        <button onClick={handleClearHistoryClick} style={{marginLeft: "5%"}}>Clear History</button>
         <button onClick={handleLogOutClick} style={{marginLeft: "65%"}}>Log Out</button>
-
         </>
     )
 } 

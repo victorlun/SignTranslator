@@ -1,5 +1,6 @@
 import { createHeaders } from "./index"
 
+
 export const getApiId = async (user) => {
     const API_URL = `${process.env.REACT_APP_API_URL}?username=${user.username}`;
     const response = await fetch(API_URL, {
@@ -15,11 +16,31 @@ export const getApiId = async (user) => {
     return id;
 }
 
+export const clearTranslation = async (user) => {
+    const API_URL = process.env.REACT_APP_API_URL;
+    const id = await getApiId(user); 
+
+    const response = await fetch(`${API_URL}/${id}`, { 
+        method: 'PATCH',
+        headers: createHeaders(),
+        body: JSON.stringify({
+            translations: []
+        })
+    });
+
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    } else {
+        return await response.json();
+    }
+}
+
+
+
 export const patchTranslation = async (user, translation) => {
     const API_URL = process.env.REACT_APP_API_URL;
     
-    const id = await getApiId(user); // Correctly await the Promise
-
+    const id = await getApiId(user); 
     console.log(id);
     try {
         // Fetch current translations
@@ -34,8 +55,10 @@ export const patchTranslation = async (user, translation) => {
         const currentUser = await currentResponse.json();
         const currentTranslations = currentUser.translations;
 
-        // Append new translation
-        currentTranslations.push(translation);
+        if (currentTranslations.length >= 10) {
+            currentTranslations.shift();
+          }
+          currentTranslations.push(translation);
 
         // Patch with new translations
         const response = await fetch(`${API_URL}/${id}`, { 
