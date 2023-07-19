@@ -10,7 +10,8 @@ const ProfileTranslateHistory = ({translations}) => {
     return (
         <section>
             <h4>Translation History</h4>
-            <ul style={{marginLeft: "20px"}}>
+            
+            <ul>
                 {translationList}
             </ul>
   

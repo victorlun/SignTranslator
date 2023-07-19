@@ -127,4 +127,16 @@ button:active {
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
     transform: translateY(0px);
 }
+ul {
+    font-family: 'JetBrains Mono', cursive;
+    border-color: #f4a261;
+    margin-right: 10%;
+    margin-left: 10%;
+    border: 10px solid #f4a261;
+    border-radius: 25px;
+    list-style-type: square;
+    font-size: 18px;
+    
+    
+}
 
