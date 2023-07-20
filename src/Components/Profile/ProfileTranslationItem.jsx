@@ -1,8 +1,5 @@
-
-const ProfileTranslationItem = ({translation}) =>{ 
-    return(
-        <li>{translation}</li>
-    )
+const ProfileTranslationItem = ({ translation }) => {
+  return <li>{translation}</li>
 }
 
 export default ProfileTranslationItem

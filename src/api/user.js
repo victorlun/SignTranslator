@@ -10,7 +10,7 @@ export const checkForUser = async (username) => {
     }
     const data = await response.json()
     return [null, data]
-  } catch (error) { 
+  } catch (error) {
     return [error.message]
   }
 }
@@ -18,12 +18,12 @@ export const checkForUser = async (username) => {
 const createUser = async (username) => {
   try {
     const response = await fetch(API_URL, {
-        method: 'POST',
-        headers: createHeaders(),
-        body: JSON.stringify({
-            username, 
-            translations: []
-        })
+      method: "POST",
+      headers: createHeaders(),
+      body: JSON.stringify({
+        username,
+        translations: [],
+      }),
     })
     if (!response.ok) {
       throw new Error("Could not create new user with username " + username)
@@ -37,8 +37,8 @@ const createUser = async (username) => {
 
 export const loginUser = async (username) => {
   const [checkError, user] = await checkForUser(username)
-  
-  if(checkError !== null){
+
+  if (checkError !== null) {
     return [checkError, null]
   }
   if (user.length > 0) {
