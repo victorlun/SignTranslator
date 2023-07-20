@@ -1,16 +1,15 @@
-import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Translate from "./views/Translate";
-import Login from "./views/Login";
-import Profile from "./views/Profile";
-import Navbar from "./components/NavBar/Navbar";
+import "./App.css"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Translate from "./views/Translate"
+import Login from "./views/Login"
+import Profile from "./views/Profile"
+import Navbar from "./components/NavBar/Navbar"
 
 function App() {
   return (
-
     <BrowserRouter>
       <div className="App">
-      < Navbar/>
+        <Navbar />
         <Routes>
           <Route path="/translate" element={<Translate />} />
           <Route path="/" element={<Login />} />
@@ -19,8 +18,7 @@ function App() {
         </Routes>
       </div>
     </BrowserRouter>
-
-  );
+  )
 }
 
-export default App;
+export default App
