@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { clearTranslation } from "../../api/translation"
-import { UserContext } from '../../Context/UserContext'
+import { UserContext } from '../../context/UserContext'
 
 
 const ProfileActions = ({logout}) => {
