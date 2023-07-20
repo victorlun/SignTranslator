@@ -1,53 +1,53 @@
-import React, { useState, useContext } from "react";
-import TranslatedField from "./TranslatedField";
-import * as Images from "./imageIndex.js";
-import { patchTranslation } from "../../api/translation";
-import { UserContext } from "../../context/UserContext";
-import { storageSave } from "../../utils/storage";
-import { STORAGE_KEY_USER } from "../../const/storageKeys";
+import React, { useState, useContext } from "react"
+import TranslatedField from "./TranslatedField"
+import * as Images from "./imageIndex.js"
+import { patchTranslation } from "../../api/translation"
+import { UserContext } from "../../context/UserContext"
+import { storageSave } from "../../utils/storage"
+import { STORAGE_KEY_USER } from "../../const/storageKeys"
 
 function TranslateForm() {
-  const [text, setText] = useState("");
-  const [, setTranslation] = useState([]);
-  const [imageTranslation, setImageTranslation] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
-  const { user, setUser } = useContext(UserContext);
+  const [text, setText] = useState("")
+  const [, setTranslation] = useState([])
+  const [imageTranslation, setImageTranslation] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+  const { user, setUser } = useContext(UserContext)
 
   async function handleTranslate() {
-    setIsLoading(true); // set loading to true
-    const textArray = text.toLowerCase().split("");
-    const textstring = text;
-    let charImages = [];
+    setIsLoading(true) // set loading to true
+    const textArray = text.toLowerCase().split("")
+    const textstring = text
+    let charImages = []
 
     for (let i = 0; i < textArray.length; i++) {
       if (Images[textArray[i]]) {
-        charImages.push(Images[textArray[i]]);
+        charImages.push(Images[textArray[i]])
       }
     }
 
-    setImageTranslation(charImages);
-    setTranslation(textstring);
+    setImageTranslation(charImages)
+    setTranslation(textstring)
 
-    const data = await patchTranslation(user, textstring);
+    const data = await patchTranslation(user, textstring)
 
     if (data) {
-      let updatedTranslations = [...user.translations, textstring];
+      let updatedTranslations = [...user.translations, textstring]
 
       // limit to the last 10 translations
       if (updatedTranslations.length > 10) {
         updatedTranslations = updatedTranslations.slice(
           updatedTranslations.length - 10
-        );
+        )
       }
 
       const updatedUser = {
         ...user,
         translations: updatedTranslations,
-      };
-      setUser(updatedUser);
-      storageSave(STORAGE_KEY_USER, updatedUser);
+      }
+      setUser(updatedUser)
+      storageSave(STORAGE_KEY_USER, updatedUser)
     }
-    setIsLoading(false); // set loading to false
+    setIsLoading(false) // set loading to false
   }
 
   return (
@@ -75,7 +75,7 @@ function TranslateForm() {
       </button>
       <TranslatedField imageTranslation={imageTranslation} />
     </div>
-  );
+  )
 }
 
-export default TranslateForm;
+export default TranslateForm
