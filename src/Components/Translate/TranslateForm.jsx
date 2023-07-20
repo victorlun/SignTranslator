@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import TranslatedField from './TranslatedField';
 import * as Images from './imageIndex.js'
 import { patchTranslation } from '../../api/translation';
-import { UserContext } from '../../Context/UserContext';
+import { UserContext } from '../../context/UserContext';
 import { storageSave } from '../../utils/storage';
 import { STORAGE_KEY_USER } from '../../const/storageKeys';
 
