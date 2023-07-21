@@ -3,7 +3,7 @@ import { loginUser } from "../../api/user.js"
 import { useState, useEffect } from "react"
 import { storageSave } from "../../utils/storage.js"
 import { useNavigate } from "react-router-dom"
-import { useUser } from "../../context/UserContext.jsx"
+import { useUser } from "../../Context/UserContext.jsx"
 import { STORAGE_KEY_USER } from "../../const/storageKeys.js"
 
 const usernameConfig = {

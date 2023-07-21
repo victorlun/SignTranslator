@@ -4,4 +4,3 @@ const AppContext = ({ children }) => {
   return <UserProvider>{children}</UserProvider>
 }
 export default AppContext
-//Test

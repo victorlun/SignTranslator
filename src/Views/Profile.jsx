@@ -1,7 +1,7 @@
 import ProfileActions from "../components/Profile/ProfileActions"
 import ProfileHeader from "../components/Profile/ProfileHeader"
 import ProfileTranslateHistory from "../components/Profile/ProfileTranslateHistory"
-import { useUser } from "../context/UserContext"
+import { useUser } from "../Context/UserContext"
 import { STORAGE_KEY_USER } from "../const/storageKeys"
 import { withAuth } from "../hoc/withAuth"
 import { storageSave } from "../utils/storage"

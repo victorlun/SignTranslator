@@ -1,6 +1,6 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
-import { useUser } from "../../context/UserContext"
+import { useUser } from "../../Context/UserContext"
 import "../styles.css"
 import logo from "./Logo.png"
 
