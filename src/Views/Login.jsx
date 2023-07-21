@@ -7,10 +7,10 @@ function Login() {
       <LoginForm />
       <img
         src="https://i.gifer.com/q7Q.gif"
-        alt="lost in translation gif"
+        alt="lost in translation gif" className="center"
         style={{
-          marginLeft: "37%",
-          marginTop: "30%",
+        
+          marginTop: "230px",
           height: "250px",
           width: "450px",
           opacity: "70%",

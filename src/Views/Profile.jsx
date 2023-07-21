@@ -19,10 +19,9 @@ function Profile() {
       <ProfileTranslateHistory translations={user.translations} />
       <img
         src="https://i.gifer.com/q7Q.gif"
-        alt="lost in translation gif"
+        alt="lost in translation gif" className="center"
         style={{
-          marginLeft: "35%",
-          marginTop: "15%",
+          marginTop: "140px",
           height: "250px",
           width: "450px",
           opacity: "65%",

@@ -11,10 +11,9 @@ function Translate() {
       <TranslateForm />
       <img
         src="https://i.gifer.com/q7Q.gif"
-        alt="lost in translation gif"
+        alt="lost in translation gif" className="center"
         style={{
-          marginLeft: "37%",
-          marginTop: "15%",
+          marginTop: "100px",
           height: "250px",
           width: "450px",
           opacity: "65%",
