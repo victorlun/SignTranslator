@@ -1,4 +1,4 @@
-import TranslateForm from "../components/Translate/TranslateForm"
+import TranslateForm from "../Components/Translate/TranslateForm"
 import { withAuth } from "../hoc/withAuth"
 
 function Translate() {
