@@ -8,7 +8,7 @@ Login using just a username.
 No contribution as this is a school assignment
 
 ## Project Status
-The project is still being developed, some major functionality is still missing. Such as saving translations to users etc.
+The project is to be considered done at this point. Redux never got implemented due to lack of time.
 
 ## Author
-Written by Victor Lundqvist
+Victor Lundqvist
