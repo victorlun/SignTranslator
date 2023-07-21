@@ -38,7 +38,7 @@ export const patchTranslation = async (user, translation) => {
   const API_URL = process.env.REACT_APP_API_URL
 
   const id = await getApiId(user)
-  console.log(id)
+
   try {
     // Fetch current translations
     const currentResponse = await fetch(`${API_URL}/${id}`, {
